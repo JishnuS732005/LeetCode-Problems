@@ -11,12 +11,5 @@ class Solution {
             ex = sum1 + rem;
         }
         return n + sum;
-
-        // int ex = n / numExchange;
-        // int rem = n % numExchange;
-        // int sum = ex + rem;
-        // int dr = sum / numExchange;
-        // return n + ex + dr;
-               
     }
 }
