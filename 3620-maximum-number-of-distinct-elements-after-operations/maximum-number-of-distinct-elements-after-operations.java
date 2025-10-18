@@ -1,23 +1,16 @@
 class Solution {
     public int maxDistinctElements(int[] nums, int k) {
+        if(nums.length <= 2*k + 1) return nums.length;
         Arrays.sort(nums);
-        int c = 1;
-        int prev = nums[0] - k;
-        for(int i=1;i<nums.length;i++) {
-            int min = nums[i]-k;
-            int max = nums[i]+k;
-            if(min > prev) {
-                c++;
-                prev = min;
-            }
-            else if(prev < max) {
-                prev = prev+1;
-                c++;
-            }
-            else {
-                continue;
+        int dis = 0;
+        int l = Integer.MIN_VALUE;
+        for(int i=0;i<nums.length;i++) {
+            int m = Math.max(l+1, nums[i]-k);
+            if(m <= nums[i]+k) {
+                dis++;
+                l = m;
             }
         }
-        return c;
+        return dis;
     }
 }
