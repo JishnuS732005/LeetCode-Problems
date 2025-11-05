@@ -1,4 +1,5 @@
 class Solution {
+
     private final TreeSet<int[]> left = new TreeSet<>((a, b) -> a[0] != b[0] ? a[0] - b[0] : a[1] - b[1]);
     private final TreeSet<int[]> right = new TreeSet<>((a, b) -> a[0] != b[0] ? a[0] - b[0] : a[1] - b[1]);
     private final Map<Integer, Integer> count = new HashMap<>();
