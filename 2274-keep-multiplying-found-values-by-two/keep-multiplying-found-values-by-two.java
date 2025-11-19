@@ -1,13 +1,12 @@
 class Solution {
-    public int findFinalValue(int[] nums, int k) {
-        int bits = 0;
+    public int findFinalValue(int[] nums, int original) {
+        Set<Integer> numSet = new HashSet<>();
         for (int num : nums) {
-            if (num % k != 0) continue;
-            int n = num / k;
-            if ((n & (n - 1)) == 0)
-                bits |= n;
+            numSet.add(num);
         }
-        bits++;
-        return k * (bits & -bits);
+        while (numSet.contains(original)) {
+            original *= 2;
+        }
+        return original;
     }
 }
